@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseClient", "DatabaseClient\DatabaseClient.csproj", "{4091B8BE-2DCC-4DC7-B890-3C10B5664676}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OracleDbProvider", "OracleDbProvider\OracleDbProvider.csproj", "{3E9CAA29-DD5D-4F05-B31E-65817729B257}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4091B8BE-2DCC-4DC7-B890-3C10B5664676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4091B8BE-2DCC-4DC7-B890-3C10B5664676}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4091B8BE-2DCC-4DC7-B890-3C10B5664676}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4091B8BE-2DCC-4DC7-B890-3C10B5664676}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E9CAA29-DD5D-4F05-B31E-65817729B257}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E9CAA29-DD5D-4F05-B31E-65817729B257}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E9CAA29-DD5D-4F05-B31E-65817729B257}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E9CAA29-DD5D-4F05-B31E-65817729B257}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
