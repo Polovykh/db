@@ -2,11 +2,11 @@
 using System.Data;
 using Oracle.ManagedDataAccess.Client;
 
-namespace OracleDbProvider
+namespace OracleDbProvider.Contexts
 {
 	public class BaseContext : IDisposable
 	{
-		private OracleConnection Connection { get; }
+		protected OracleConnection Connection { get; }
 
 		internal BaseContext(OracleConnection connection)
 		{

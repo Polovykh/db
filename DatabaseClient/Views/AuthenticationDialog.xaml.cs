@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows;
-using OracleDbProvider;
+using OracleDbProvider.Contexts;
 
-namespace DatabaseClient.View
+namespace DatabaseClient.Views
 {
 	/// <summary>
 	/// Логика взаимодействия для AuthenticationDialog.xaml

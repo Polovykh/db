@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows;
-using OracleDbProvider;
+using OracleDbProvider.Contexts;
 
-namespace DatabaseClient.View
+namespace DatabaseClient.Views
 {
 	/// <summary>
 	/// Логика взаимодействия для MainWindow.xaml
@@ -13,6 +13,15 @@ namespace DatabaseClient.View
 		{
 			InitializeComponent();
 			DbProvider = Initialize();
+
+			// TEST
+			using (var ctx = DbProvider.RawQueriesContext)
+			{
+				//var queryResult = ctx.Execute(@"CREATE TABLE test ( column1 NUMBER PRIMARY KEY )");
+				//queryResult = ctx.Execute(@"INSERT INTO test VALUES (1)");
+				//queryResult = ctx.Execute(@"SELECT * FROM test");
+				//queryResult = ctx.Execute(@"DROP TABLE test");
+			}
 		}
 
 		public void Dispose()

@@ -2,7 +2,7 @@
 using System.Data;
 using Oracle.ManagedDataAccess.Client;
 
-namespace OracleDbProvider
+namespace OracleDbProvider.Contexts
 {
 	public class Provider : IDisposable
 	{
@@ -15,7 +15,7 @@ namespace OracleDbProvider
 
 		#region MainFunctions
 
-		public EntitiesContext EntitiesContext => new EntitiesContext(Connection);
+		public TableContext TableContext => new TableContext(Connection);
 
 		public RawQueriesContext RawQueriesContext => new RawQueriesContext(Connection);
 		

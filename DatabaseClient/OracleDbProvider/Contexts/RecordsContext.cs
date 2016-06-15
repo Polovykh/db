@@ -1,6 +1,6 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 
-namespace OracleDbProvider
+namespace OracleDbProvider.Contexts
 {
 	public class RecordsContext : BaseContext
 	{
