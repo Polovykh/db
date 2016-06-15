@@ -103,7 +103,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OracleDbProvider\OracleDbProvider.csproj">
+    <ProjectReference Include="OracleDbProvider\OracleDbProvider.csproj">
       <Project>{3e9caa29-dd5d-4f05-b31e-65817729b257}</Project>
       <Name>OracleDbProvider</Name>
     </ProjectReference>

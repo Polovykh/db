@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using OracleDbProvider;
 
 namespace DatabaseClient.View
 {
@@ -26,7 +16,24 @@ namespace DatabaseClient.View
 
 		private void Apply_OnClick(object sender, RoutedEventArgs e)
 		{
-			throw new NotImplementedException();
+			try
+			{
+				DbProvider = new Provider(Hostname.Text, Username.Text, Password.Password);
+				DialogResult = true;
+				Close();
+			}
+			catch (Exception exception)
+			{
+				Error.Content = exception.Message;
+			}
 		}
+
+		private void Cancel_OnClick(object sender, RoutedEventArgs e)
+		{
+			DialogResult = false;
+			Close();
+		}
+
+		public Provider DbProvider { get; private set; }
 	}
 }

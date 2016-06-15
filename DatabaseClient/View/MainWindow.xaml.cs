@@ -1,29 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using OracleDbProvider;
 
 namespace DatabaseClient.View
 {
 	/// <summary>
 	/// Логика взаимодействия для MainWindow.xaml
 	/// </summary>
-	public partial class MainWindow : Window
+	public partial class MainWindow : Window, IDisposable
 	{
 		public MainWindow()
 		{
 			InitializeComponent();
+			DbProvider = Initialize();
+		}
 
+		public void Dispose()
+		{
+			DbProvider.Dispose();
+		}
+
+		#region SupportFunctions
+
+		private Provider Initialize()
+		{
 			var dialog = new AuthenticationDialog();
 			var authenticationIsSuccessful = dialog.ShowDialog();
 			if (true != authenticationIsSuccessful)
@@ -31,7 +31,11 @@ namespace DatabaseClient.View
 				Close();
 			}
 
-			// TODO
+			return dialog.DbProvider;
 		}
+
+		#endregion
+
+		private Provider DbProvider { get; }
 	}
 }
