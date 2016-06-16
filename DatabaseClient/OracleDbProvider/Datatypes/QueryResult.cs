@@ -1,40 +1,50 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
-using Oracle.ManagedDataAccess.Client;
 
 namespace OracleDbProvider.Datatypes
 {
 	public class QueryResult
 	{
-		public Dictionary<string, object[]> Content { get; }
+		public Dictionary<string, List<string>> Content { get; }
 
-		internal QueryResult(OracleDataReader reader)
+		internal QueryResult(DbDataReader reader)
 		{
-			
-			/*
-			var schema = reader.GetSchemaTable();
-			if (null == schema)
-			{
-				throw new Exception("Schema table has not been received");
-			}
-			
-			var columns = schema.Columns;
-			var rows = schema.Rows;
+			Content = Initialize(reader);
+		}
 
-			Content = new Dictionary<string, object[]>(columns.Count);			
-			foreach (var columnName in 
-				from DataColumn column in columns
-				select column.ColumnName)
+		private static Dictionary<string, List<string>> Initialize(DbDataReader reader)
+		{
+			var dictionary = new Dictionary<string, List<string>>();
+			var columnsCount = reader.FieldCount;
+			var columnsNames = new List<string>(columnsCount);
+			//var columnsTypes = new List<Type>(columnsCount); 
+
+			foreach (var columnNo in Enumerable.Range(0, columnsCount))
 			{
-				Content[columnName] = new object[rows.Count];
-				foreach (var i in Enumerable.Range(0, rows.Count))
-				{
-					Content[columnName][i] = rows[i][columnName];
-				}
+				var columnName = reader.GetName(columnNo);
+				//var columnType = reader.GetFieldType(columnNo);
+				columnsNames.Add(columnName);
+				//columnsTypes.Add(columnType);
+				dictionary[columnName] = new List<string>();
 			}
-			*/
+
+			if (!reader.HasRows)
+			{
+				return dictionary;
+			}
+
+			while (reader.Read())
+			{
+				foreach (var columnNo in Enumerable.Range(0, columnsCount))
+				{
+					var columnName = columnsNames[columnNo];
+					var columnValue = reader.GetValue(columnNo).ToString();
+					dictionary[columnName].Add(columnValue);
+				}			
+			}
+
+			return dictionary;
 		}
 	}
 }

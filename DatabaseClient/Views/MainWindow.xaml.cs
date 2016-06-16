@@ -17,10 +17,10 @@ namespace DatabaseClient.Views
 			// TEST
 			using (var ctx = DbProvider.RawQueriesContext)
 			{
-				//var queryResult = ctx.Execute(@"CREATE TABLE test ( column1 NUMBER PRIMARY KEY )");
-				//queryResult = ctx.Execute(@"INSERT INTO test VALUES (1)");
+				//var queryResult = ctx.Execute(@"CREATE TABLE test ( column1 NUMBER PRIMARY KEY, column2 VARCHAR2(15), column3 DATE DEFAULT(sysdate) )");
+				//queryResult = ctx.Execute(@"INSERT INTO test (column1, column2) VALUES (2, 'tfbtrhb')");
 				//queryResult = ctx.Execute(@"SELECT * FROM test");
-				//queryResult = ctx.Execute(@"DROP TABLE test");
+				//ctx.Execute(@"DROP TABLE test");
 			}
 		}
 
