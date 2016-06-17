@@ -1,50 +1,35 @@
-﻿using System.Collections.Generic;
+﻿using System.Data;
 using System.Data.Common;
 using System.Linq;
 
 namespace OracleDbProvider.Datatypes
 {
-	public class QueryResult
+	public class QueryResult : DataTable
 	{
-		public Dictionary<string, List<string>> Content { get; }
-
-		internal QueryResult(DbDataReader reader)
+		internal QueryResult(DbDataReader reader) : base()
 		{
-			Content = Initialize(reader);
+			Initialize(reader);
 		}
 
-		private static Dictionary<string, List<string>> Initialize(DbDataReader reader)
+		private void Initialize(DbDataReader reader)
 		{
-			var dictionary = new Dictionary<string, List<string>>();
 			var columnsCount = reader.FieldCount;
-			var columnsNames = new List<string>(columnsCount);
-			//var columnsTypes = new List<Type>(columnsCount); 
-
-			foreach (var columnNo in Enumerable.Range(0, columnsCount))
+			foreach (var columnName in Enumerable.Range(0, columnsCount).Select(reader.GetName))
 			{
-				var columnName = reader.GetName(columnNo);
-				//var columnType = reader.GetFieldType(columnNo);
-				columnsNames.Add(columnName);
-				//columnsTypes.Add(columnType);
-				dictionary[columnName] = new List<string>();
+				Columns.Add(columnName, typeof (string));
 			}
 
 			if (!reader.HasRows)
 			{
-				return dictionary;
+				return;
 			}
 
 			while (reader.Read())
 			{
-				foreach (var columnNo in Enumerable.Range(0, columnsCount))
-				{
-					var columnName = columnsNames[columnNo];
-					var columnValue = reader.GetValue(columnNo).ToString();
-					dictionary[columnName].Add(columnValue);
-				}			
+				var values = new object[columnsCount];
+				reader.GetValues(values);
+				Rows.Add(values);
 			}
-
-			return dictionary;
 		}
 	}
 }

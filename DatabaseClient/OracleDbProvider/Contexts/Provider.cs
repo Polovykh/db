@@ -15,11 +15,11 @@ namespace OracleDbProvider.Contexts
 
 		#region MainFunctions
 
-		public TableContext TableContext => new TableContext(Connection);
+		public ModelContext ModelContext => new ModelContext(Connection);
 
 		public RawQueriesContext RawQueriesContext => new RawQueriesContext(Connection);
 		
-		public RecordsContext RecordsContext => new RecordsContext(Connection);
+		public DataContext DataContext => new DataContext(Connection);
 
 		public ReplyContext ReplyContext => new ReplyContext(Connection);
 

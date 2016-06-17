@@ -24,22 +24,25 @@ namespace DatabaseClient.Views
 
 		#region Callbacks
 
-		private void TableContext_OnClick(object sender, RoutedEventArgs e)
+		private void ModelContext_OnClick(object sender, RoutedEventArgs e)
 		{
-			ContextView.Children.Clear();
-			ContextView.Children.Add(new RawQueriesControl(DbProvider.RawQueriesContext));
+			var content = ContextView.Children;
+			content.Clear();
+			content.Add(new ModelControl(DbProvider.ModelContext));
 		}
 
 		private void DataContext_OnClick(object sender, RoutedEventArgs e)
 		{
-			ContextView.Children.Clear();
-			ContextView.Children.Add(new RawQueriesControl(DbProvider.RawQueriesContext));
+			var content = ContextView.Children;
+			content.Clear();
+			content.Add(new DataControl(DbProvider.DataContext));
 		}
 
 		private void RawQueriesContext_OnClick(object sender, RoutedEventArgs e)
 		{
-			ContextView.Children.Clear();
-			ContextView.Children.Add(new RawQueriesControl(DbProvider.RawQueriesContext));
+			var content = ContextView.Children;
+			content.Clear();
+			content.Add(new RawQueriesControl(DbProvider.RawQueriesContext));
 		}
 
 		#endregion

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using OracleDbProvider.Contexts;
 
@@ -9,17 +10,55 @@ namespace DatabaseClient.Views
 	/// </summary>
 	public partial class RawQueriesControl : UserControl
 	{
-		public RawQueriesControl(RawQueriesContext context)
+		public RawQueriesControl(RawQueriesContext dbContext)
 		{
 			InitializeComponent();
-			Context = context;
+			DbContext = dbContext;
 		}
 
-		private RawQueriesContext Context { get; }
+		#region Callbacks
 
 		private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
 		{
-			throw new System.NotImplementedException();
+			var queryBody = QueryBox.Text;
+			var content = Content.Children;
+			content.Clear();
+
+			if (string.IsNullOrEmpty(queryBody))
+			{
+				content.Add(WrapMessage("Query body is empty"));
+				return;
+			}
+
+			try
+			{
+				var queryResult = DbContext.Execute(queryBody);
+				var queryResultControl = new QueryResultControl(queryResult);
+				content.Add(queryResultControl);
+			}
+			catch (Exception exception)
+			{
+				content.Add(WrapMessage(exception.Message));
+			}
 		}
+
+		#endregion
+
+		#region SupportFunctions
+
+		private static Label WrapMessage(string message)
+		{
+			return new Label()
+			{
+				Content = message,
+				FontSize = 14,
+				HorizontalContentAlignment = HorizontalAlignment.Center,
+				VerticalContentAlignment = VerticalAlignment.Center
+			};
+		}
+
+		#endregion
+
+		private RawQueriesContext DbContext { get; }
 	}
 }

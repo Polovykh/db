@@ -40,10 +40,11 @@
         
         <TextBox Name="QueryBox" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" 
                  AcceptsReturn="True" VerticalScrollBarVisibility="Auto"
-                 MaxHeight="100" FontSize="14" Margin="4" Grid.RowSpan="2"/>
+                 MaxHeight="100" FontSize="14" Margin="4" Grid.RowSpan="2"
+                 Text="SELECT * FROM EMP"/>
 
-        <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2">
-                
+        <Grid Name="Content" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2">
+            
         </Grid>
         
     </Grid>

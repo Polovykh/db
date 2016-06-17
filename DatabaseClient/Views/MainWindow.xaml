@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DatabaseClient.Views"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="800"
+        mc:Ignorable="d" Icon="../Resources/main.png"
+        Title="Oracle Database Client" Height="500" Width="800"
         MinHeight="200" MinWidth="300">
 
     <Window.Resources>
@@ -30,8 +30,8 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Button Name="TableContext" Grid.Column="0" Grid.Row="0" 
-                Content="Model" Click="TableContext_OnClick"/>
+        <Button Name="ModelContext" Grid.Column="0" Grid.Row="0" 
+                Content="Model" Click="ModelContext_OnClick"/>
         <Button Name="DataContext" Grid.Column="1" Grid.Row="0" 
                 Content="Data" Click="DataContext_OnClick"/>
         <Button Name="RawQueriesContext" Grid.Column="2" Grid.Row="0" 

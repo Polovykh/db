@@ -8,12 +8,12 @@ namespace DatabaseClient.Views
 	/// </summary>
 	public partial class DataControl : UserControl
 	{
-		public DataControl(RecordsContext context)
+		public DataControl(DataContext dbContext)
 		{
 			InitializeComponent();
-			Context = context;
+			DbContext = dbContext;
 		}
 
-		private RecordsContext Context { get; }
+		private DataContext DbContext { get; }
 	}
 }

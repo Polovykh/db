@@ -3,9 +3,9 @@ using OracleDbProvider.Datatypes.TableChanges;
 
 namespace OracleDbProvider.Contexts
 {
-	public class TableContext : BaseContext
+	public class ModelContext : BaseContext
 	{
-		internal TableContext(OracleConnection connection) : base(connection)
+		internal ModelContext(OracleConnection connection) : base(connection)
 		{
 		}
 

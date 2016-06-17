@@ -61,8 +61,8 @@
     <Compile Include="Views\ModelControl.xaml.cs">
       <DependentUpon>ModelControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\QueryResultView.xaml.cs">
-      <DependentUpon>QueryResultView.xaml</DependentUpon>
+    <Compile Include="Views\QueryResultControl.xaml.cs">
+      <DependentUpon>QueryResultControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RawQueriesControl.xaml.cs">
       <DependentUpon>RawQueriesControl.xaml</DependentUpon>
@@ -94,7 +94,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\QueryResultView.xaml">
+    <Page Include="Views\QueryResultControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -140,7 +140,10 @@
     <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\auth.png" />
+    <Resource Include="Resources\Auth.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Main.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
