@@ -15,14 +15,34 @@ namespace DatabaseClient.Views
 			DbProvider = Initialize();
 
 			// TEST
-			using (var ctx = DbProvider.RawQueriesContext)
-			{
-				//var queryResult = ctx.Execute(@"CREATE TABLE test ( column1 NUMBER PRIMARY KEY, column2 VARCHAR2(15), column3 DATE DEFAULT(sysdate) )");
-				//queryResult = ctx.Execute(@"INSERT INTO test (column1, column2) VALUES (2, 'tfbtrhb')");
-				//queryResult = ctx.Execute(@"SELECT * FROM test");
-				//ctx.Execute(@"DROP TABLE test");
-			}
+			//var ctx = DbProvider.RawQueriesContext;
+			//var queryResult = ctx.Execute(@"CREATE TABLE test ( column1 NUMBER PRIMARY KEY, column2 VARCHAR2(15), column3 DATE DEFAULT(sysdate) )");
+			//queryResult = ctx.Execute(@"INSERT INTO test (column1, column2) VALUES (2, 'tfbtrhb')");
+			//queryResult = ctx.Execute(@"SELECT * FROM test");
+			//ctx.Execute(@"DROP TABLE test");
 		}
+
+		#region Callbacks
+
+		private void TableContext_OnClick(object sender, RoutedEventArgs e)
+		{
+			ContextView.Children.Clear();
+			ContextView.Children.Add(new RawQueriesControl(DbProvider.RawQueriesContext));
+		}
+
+		private void DataContext_OnClick(object sender, RoutedEventArgs e)
+		{
+			ContextView.Children.Clear();
+			ContextView.Children.Add(new RawQueriesControl(DbProvider.RawQueriesContext));
+		}
+
+		private void RawQueriesContext_OnClick(object sender, RoutedEventArgs e)
+		{
+			ContextView.Children.Clear();
+			ContextView.Children.Add(new RawQueriesControl(DbProvider.RawQueriesContext));
+		}
+
+		#endregion
 
 		public void Dispose()
 		{

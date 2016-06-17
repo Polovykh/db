@@ -14,6 +14,8 @@ namespace DatabaseClient.Views
 			InitializeComponent();
 		}
 
+		#region Callbacks
+
 		private void Apply_OnClick(object sender, RoutedEventArgs e)
 		{
 			try
@@ -33,6 +35,8 @@ namespace DatabaseClient.Views
 			DialogResult = false;
 			Close();
 		}
+
+		#endregion
 
 		public Provider DbProvider { get; private set; }
 	}

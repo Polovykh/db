@@ -5,8 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DatabaseClient.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="500" Width="800"
+        MinHeight="200" MinWidth="300">
+
+    <Window.Resources>
+
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+
+    </Window.Resources>
+
     <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button Name="TableContext" Grid.Column="0" Grid.Row="0" 
+                Content="Model" Click="TableContext_OnClick"/>
+        <Button Name="DataContext" Grid.Column="1" Grid.Row="0" 
+                Content="Data" Click="DataContext_OnClick"/>
+        <Button Name="RawQueriesContext" Grid.Column="2" Grid.Row="0" 
+                Content="Raw Queries" Click="RawQueriesContext_OnClick"/>
+        
+        <Grid x:Name="ContextView" Grid.Column="0" Grid.Row="1" 
+              Grid.ColumnSpan="3" Margin="5, 0, 5, 5">
+         
+            <Label FontSize="16" HorizontalContentAlignment="Center" 
+                   VerticalContentAlignment="Center">
+                Choose one of the above modes of interaction with database
+            </Label>
+
+        </Grid>
 
     </Grid>
 </Window>

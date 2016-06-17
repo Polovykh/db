@@ -27,6 +27,11 @@ namespace OracleDbProvider.Contexts
 
 		public void Dispose()
 		{
+			if (ConnectionState.Closed != Connection.State)
+			{
+				Connection.Close();
+			}
+
 			Connection.Dispose();
 		}
 
