@@ -33,7 +33,10 @@ namespace DatabaseClient.Views
 			try
 			{
 				var queryResult = DbContext.Execute(queryBody);
-				var queryResultControl = new QueryResultControl(queryResult);
+				var queryResultControl = new TableControl(queryResult)
+				{
+					IsReadOnly = true
+				};
 				content.Add(queryResultControl);
 			}
 			catch (Exception exception)
