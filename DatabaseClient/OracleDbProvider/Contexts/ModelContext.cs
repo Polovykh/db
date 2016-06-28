@@ -1,5 +1,5 @@
 ﻿using Oracle.ManagedDataAccess.Client;
-using OracleDbProvider.Datatypes.TableChanges;
+using OracleDbProvider.Datatypes.ModelChanges;
 
 namespace OracleDbProvider.Contexts
 {
@@ -9,17 +9,17 @@ namespace OracleDbProvider.Contexts
 		{
 		}
 
-		public void CreateTable(TableChanges changes)
+		public void CreateTable(ModelChanges changes)
 		{
 			
 		}
 
-		public void UpdateTable(TableChanges changes)
+		public void UpdateTable(ModelChanges changes)
 		{
 			
 		}
 
-		public void DeleteTable(TableChanges changes)
+		public void DeleteTable(ModelChanges changes)
 		{
 			
 		}

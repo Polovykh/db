@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Windows;
 using System.Windows.Controls;
 using OracleDbProvider.Contexts;
@@ -32,7 +33,12 @@ namespace DatabaseClient.Views
 
 			try
 			{
-				var queryResult = DbContext.Execute(queryBody);
+				var queryResult = new DataTable();
+				if (0 >= DbContext.Execute(queryBody, queryResult))
+				{
+					throw new Exception();
+				}
+				
 				var queryResultControl = new TableControl(queryResult)
 				{
 					IsReadOnly = true

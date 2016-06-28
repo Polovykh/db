@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace OracleDbProvider.Datatypes.TableChanges
+namespace OracleDbProvider.Datatypes.ModelChanges
 {
-	public class TableChanges
+	public class ModelChanges
 	{
 		public string TableName { get; set; }
 		public PrimaryKeyChanges PrimaryKeyChanges { get; set; }
@@ -11,7 +11,7 @@ namespace OracleDbProvider.Datatypes.TableChanges
 		public List<CheckConstraintChanges> CheckConstraintChanges { get; set; }
 		public List<UniqueConstraintChanges> UniqueConstraintChanges { get; set; }
 
-		public TableChanges()
+		public ModelChanges()
 		{
 			TableName = string.Empty;
 			ColumnsChanges = new List<ColumnChanges>();

@@ -43,9 +43,7 @@
                  MaxHeight="100" FontSize="14" Margin="4" Grid.RowSpan="2"
                  Text="SELECT * FROM EMP"/>
 
-        <Grid Name="Content" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2">
-            
-        </Grid>
+        <Grid Name="Content" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2"/>
         
     </Grid>
 </UserControl>

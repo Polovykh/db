@@ -1,5 +1,5 @@
 ﻿
-namespace OracleDbProvider.Datatypes.TableChanges
+namespace OracleDbProvider.Datatypes.ModelChanges
 {
 	public class CheckConstraintChanges
 	{

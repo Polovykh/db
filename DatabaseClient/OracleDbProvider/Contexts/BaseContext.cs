@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using Oracle.ManagedDataAccess.Client;
+using OracleDbProvider.Datatypes;
 
 namespace OracleDbProvider.Contexts
 {
@@ -16,6 +17,23 @@ namespace OracleDbProvider.Contexts
 
 			Connection = connection;
 			Connection.Open();
+		}
+
+		public int Execute(string query, DataTable dataTable)
+		{
+			using (var adapter = new OracleDataAdapter(query, Connection)
+			{
+				MissingSchemaAction = MissingSchemaAction.AddWithKey
+			})
+			{
+				return adapter.Fill(dataTable);
+			}
+		}
+
+		public int Execute(string query)
+		{
+			var command = new OracleCommand(query, Connection);
+			return command.ExecuteNonQuery();
 		}
 	}
 }
